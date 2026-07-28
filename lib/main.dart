@@ -1,12 +1,24 @@
 import 'package:flutter/material.dart';
 
+import 'screen/start_screen.dart';
+
 void main() {
-  runApp(const MaterialApp(
-    home: Scaffold(
-      body: Center(
-        child: Text('Hello, World!'),
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: Color.fromARGB(255, 57, 19, 58)),
       ),
-    ),
-  ));
+      home: const StartScreen(),
+    );
+  }
 }
 

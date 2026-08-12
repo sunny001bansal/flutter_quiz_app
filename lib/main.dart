@@ -1,24 +1,7 @@
 import 'package:flutter/material.dart';
-
-import 'screen/start_screen.dart';
+import 'package:fultter_quiz_app/quiz_app.dart';
 
 void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-            seedColor: Color.fromARGB(255, 57, 19, 58)),
-      ),
-      home: const StartScreen(),
-    );
-  }
+  runApp(const QuizApp());
 }
 

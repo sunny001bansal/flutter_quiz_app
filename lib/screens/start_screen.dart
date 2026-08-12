@@ -37,7 +37,7 @@ class StartScreenContent extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 20),
-        ElevatedButton(
+        ElevatedButton.icon(
           onPressed: () {
             // Navigate to the next screen or perform an action
           },
@@ -46,7 +46,8 @@ class StartScreenContent extends StatelessWidget {
             foregroundColor: Theme.of(context).colorScheme.onPrimary,
             padding: EdgeInsets.all(16)
           ),
-          child: const Text('Get Started'),
+          icon: const Icon(Icons.arrow_forward),
+          label: const Text('Get Started'),
         ),
       ],
     );

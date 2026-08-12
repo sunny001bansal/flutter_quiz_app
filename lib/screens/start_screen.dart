@@ -4,14 +4,16 @@ import 'package:flutter/src/material/theme.dart';
 import '../background/gradient_background.dart';
 
 class StartScreen extends StatelessWidget {
-  const StartScreen({super.key});
+  const StartScreen(this.startQuiz, {super.key});
+
+  final void Function() startQuiz;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
         child: GradientBackground(
-          child: StartScreenContent(),
+          child: StartScreenContent(startQuiz),
         ),
       ),
     );
@@ -19,7 +21,9 @@ class StartScreen extends StatelessWidget {
 }
 
 class StartScreenContent extends StatelessWidget {
-  const StartScreenContent({super.key});
+  const StartScreenContent(this.startQuiz, {super.key});
+
+  final void Function() startQuiz;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +43,7 @@ class StartScreenContent extends StatelessWidget {
         const SizedBox(height: 20),
         ElevatedButton.icon(
           onPressed: () {
-            // Navigate to the next screen or perform an action
+            startQuiz();
           },
           style: ElevatedButton.styleFrom(
             backgroundColor: Theme.of(context).colorScheme.primary,

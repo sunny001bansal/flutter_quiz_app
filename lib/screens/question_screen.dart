@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fultter_quiz_app/buttons/option_button.dart';
 
 import '../background/gradient_background.dart';
 
@@ -42,17 +43,14 @@ class QuestionScreenContent extends StatelessWidget {
             color: Theme.of(context).colorScheme.onPrimary,
           ),
         ),
-        const SizedBox(height: 20),
-        ElevatedButton(
-          onPressed: () {
-            startQuiz();
-          },
-          style: ElevatedButton.styleFrom(
-              backgroundColor: Theme.of(context).colorScheme.primary,
-              foregroundColor: Theme.of(context).colorScheme.onPrimary,
-              padding: EdgeInsets.all(16)),
-          child: const Text('Next Question'),
-        ),
+        const SizedBox(height: 50),
+        OptionButton(optionText: 'Answer 1', onPressed: startQuiz),
+        const SizedBox(height: 25),
+        OptionButton(optionText: 'Answer 2', onPressed: startQuiz),
+        const SizedBox(height: 25),
+        OptionButton(optionText: 'Answer 3', onPressed: startQuiz),
+        const SizedBox(height: 25),
+        OptionButton(optionText: 'Answer 4', onPressed: startQuiz),
       ],
     );
   }

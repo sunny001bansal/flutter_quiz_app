@@ -9,21 +9,20 @@ class QuizApp extends StatefulWidget{
   State<QuizApp> createState() => QuizAppState();
 }
 
-
 class QuizAppState extends State<QuizApp> {
 
   late Widget activeScreen = StartScreen(switchScreen);
 
   void switchScreen() {
     setState(() {
-      activeScreen = const QuestionScreen();
+      activeScreen = QuestionScreen(switchScreen);
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Quiz App',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
             seedColor: Color.fromARGB(255, 57, 19, 58)),

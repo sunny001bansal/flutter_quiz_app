@@ -12,9 +12,7 @@ class StartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: GradientBackground(
-          child: StartScreenContent(startQuiz),
-        ),
+        child: StartScreenContent(startQuiz),
       ),
     );
   }

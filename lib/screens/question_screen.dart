@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fultter_quiz_app/buttons/option_button.dart';
+import 'package:fultter_quiz_app/images/logo_image.dart';
 import 'package:fultter_quiz_app/models/quiz_question.dart';
 
 import '../background/gradient_background.dart';
@@ -52,10 +53,7 @@ class QuestionScreenContent extends StatelessWidget {
             // 1. Logo anchored directly at the top of the screen
             Align(
               alignment: Alignment.topCenter,
-              child: Image.asset(
-                'assets/images/quiz_logo.png',
-                width: 150,
-                color: Color.fromARGB(150, 255, 255, 255),
+              child: LogoImage(150, Color.fromARGB(150, 255, 255, 255),
               ),
             ),
 

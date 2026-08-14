@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fultter_quiz_app/background/gradient_background.dart';
 import 'screens/question_screen.dart';
 import 'screens/start_screen.dart';
 
@@ -28,7 +27,7 @@ class QuizAppState extends State<QuizApp> {
         colorScheme: ColorScheme.fromSeed(
             seedColor: Color.fromARGB(255, 57, 19, 58)),
       ),
-      home: GradientBackground(child: activeScreen),
+      home: activeScreen,
     );
   }
 }

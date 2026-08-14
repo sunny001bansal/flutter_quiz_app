@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/material/theme.dart';
+import 'package:fultter_quiz_app/images/logo_image.dart';
 
 import '../background/gradient_background.dart';
 
@@ -12,7 +13,7 @@ class StartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: StartScreenContent(startQuiz),
+        child: GradientBackground(child: StartScreenContent(startQuiz)),
       ),
     );
   }
@@ -28,7 +29,7 @@ class StartScreenContent extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Image.asset('assets/images/quiz_logo.png', width: 300),
+        LogoImage(300, Colors.white),
         const SizedBox(height: 20),
         Text(
           'Quiz App',

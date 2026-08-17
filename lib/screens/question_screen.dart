@@ -21,7 +21,11 @@ class QuestionScreenState extends State<QuestionScreen> {
 
   void quizQuestionAnswered() {
     setState(() {
-      currentQuestionIndex++;
+      if(questions.length == currentQuestionIndex + 1) {
+        currentQuestionIndex = 0;
+      } else {
+        currentQuestionIndex++;
+      }
     });
   }
 

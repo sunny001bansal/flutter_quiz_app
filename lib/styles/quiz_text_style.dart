@@ -55,4 +55,16 @@ class QuizTextStyle {
           color: Theme.of(context).colorScheme.onPrimary,
         ),
       );
+
+  static TextStyle subTitleColoredPrimary(
+      BuildContext context,
+      Color color
+      ) =>
+      GoogleFonts.lato(
+        textStyle: TextStyle(
+          fontSize: 16.0,
+          fontWeight: FontWeight.normal,
+          color: color,
+        ),
+      );
 }

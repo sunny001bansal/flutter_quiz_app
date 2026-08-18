@@ -19,11 +19,20 @@ class QuizAppState extends State<QuizApp> {
   void chooseAnswers(String answer) {
     selectedAnswers.add(answer);
     if(selectedAnswers.length == questions.length) {
-      //TODO calculate score and show result screen
       setState(() {
-        activeScreen = ResultScreen(score: selectedAnswers.length);
+        activeScreen = ResultScreen(
+            submittedAnswers: selectedAnswers,
+            routeToStartScreen: routeToStartScreen
+        );
       });
     }
+  }
+
+  void routeToStartScreen() {
+    setState(() {
+      selectedAnswers.clear();
+      activeScreen = StartScreen(switchScreen);
+    });
   }
 
   void switchScreen() {

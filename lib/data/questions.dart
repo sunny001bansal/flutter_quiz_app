@@ -18,3 +18,10 @@ const questions = [
       ['Pacific', 'Atlantic', 'Indian', 'Arctic']
   )
 ];
+
+const answers = [
+  'Paris',
+  'Mars',
+  'Harper Lee',
+  'Pacific'
+];

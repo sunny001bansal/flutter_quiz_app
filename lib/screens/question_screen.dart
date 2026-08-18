@@ -5,6 +5,7 @@ import 'package:fultter_quiz_app/models/quiz_question.dart';
 
 import '../background/gradient_background.dart';
 import '../data/questions.dart';
+import '../styles/quiz_text_style.dart';
 
 class QuestionScreen extends StatefulWidget {
   const QuestionScreen(this.startQuiz, {super.key});
@@ -71,11 +72,7 @@ class QuestionScreenContent extends StatelessWidget {
                     Text(
                       currentQuestion.question,
                       textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        color: Theme.of(context).colorScheme.onPrimary,
-                      ),
+                      style: QuizTextStyle.headerBoldPrimary(context),
                     ),
                     const SizedBox(height: 25),
 

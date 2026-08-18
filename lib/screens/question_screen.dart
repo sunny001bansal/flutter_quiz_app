@@ -35,6 +35,7 @@ class QuestionScreenState extends State<QuestionScreen> {
         child: QuestionScreenContent(
           quizQuestionAnswered,
           currentQuestion: currentQuestion,
+          currentQuestionIndex: currentQuestionIndex,
         ),
       ),
     );
@@ -46,10 +47,12 @@ class QuestionScreenContent extends StatelessWidget {
     this.quizQuestionAnswered, {
     super.key,
     required this.currentQuestion,
+    required this.currentQuestionIndex,
   });
 
   final void Function(String) quizQuestionAnswered;
   final QuizQuestion currentQuestion;
+  final int currentQuestionIndex;
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +75,7 @@ class QuestionScreenContent extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Text(
-                      currentQuestion.question,
+                      'Q${currentQuestionIndex + 1}. ${currentQuestion.question}',
                       textAlign: TextAlign.center,
                       style: QuizTextStyle.headerBoldPrimary(context),
                     ),

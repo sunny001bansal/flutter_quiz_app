@@ -8,25 +8,21 @@ import '../data/questions.dart';
 import '../styles/quiz_text_style.dart';
 
 class QuestionScreen extends StatefulWidget {
-  const QuestionScreen(this.startQuiz, {super.key});
+  const QuestionScreen(this.quizQuestionAnswered, {super.key});
 
-  final void Function() startQuiz;
+  final void Function(String) quizQuestionAnswered;
 
   @override
   State<QuestionScreen> createState() => QuestionScreenState();
 }
 
 class QuestionScreenState extends State<QuestionScreen> {
-
   var currentQuestionIndex = 0;
 
-  void quizQuestionAnswered() {
+  void quizQuestionAnswered(String answer) {
+    widget.quizQuestionAnswered(answer);
     setState(() {
-      if(questions.length == currentQuestionIndex + 1) {
-        currentQuestionIndex = 0;
-      } else {
-        currentQuestionIndex++;
-      }
+      currentQuestionIndex++;
     });
   }
 
@@ -36,16 +32,23 @@ class QuestionScreenState extends State<QuestionScreen> {
 
     return Scaffold(
       body: GradientBackground(
-          child: QuestionScreenContent(quizQuestionAnswered, currentQuestion: currentQuestion),
+        child: QuestionScreenContent(
+          quizQuestionAnswered,
+          currentQuestion: currentQuestion,
+        ),
       ),
     );
   }
 }
 
 class QuestionScreenContent extends StatelessWidget {
-  const QuestionScreenContent(this.quizQuestionAnswered, {super.key, required this.currentQuestion});
+  const QuestionScreenContent(
+    this.quizQuestionAnswered, {
+    super.key,
+    required this.currentQuestion,
+  });
 
-  final void Function() quizQuestionAnswered;
+  final void Function(String) quizQuestionAnswered;
   final QuizQuestion currentQuestion;
 
   @override
@@ -58,8 +61,7 @@ class QuestionScreenContent extends StatelessWidget {
             // 1. Logo anchored directly at the top of the screen
             Align(
               alignment: Alignment.topCenter,
-              child: LogoImage(150, Color.fromARGB(150, 255, 255, 255),
-              ),
+              child: LogoImage(150, Color.fromARGB(150, 255, 255, 255)),
             ),
 
             // 2. Question & Options dead-centered relative to the entire screen height
@@ -80,7 +82,7 @@ class QuestionScreenContent extends StatelessWidget {
                     for (var option in currentQuestion.options) ...[
                       OptionButton(
                         optionText: option,
-                        onPressed: quizQuestionAnswered,
+                        onPressed: () => quizQuestionAnswered(option),
                       ),
                       const SizedBox(height: 12),
                     ],

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fultter_quiz_app/screens/result_screen.dart';
+import 'data/questions.dart';
 import 'screens/question_screen.dart';
 import 'screens/start_screen.dart';
 
@@ -12,10 +14,21 @@ class QuizApp extends StatefulWidget{
 class QuizAppState extends State<QuizApp> {
 
   late Widget activeScreen = StartScreen(switchScreen);
+  final List<String> selectedAnswers = [];
+
+  void chooseAnswers(String answer) {
+    selectedAnswers.add(answer);
+    if(selectedAnswers.length == questions.length) {
+      //TODO calculate score and show result screen
+      setState(() {
+        activeScreen = ResultScreen(score: selectedAnswers.length);
+      });
+    }
+  }
 
   void switchScreen() {
     setState(() {
-      activeScreen = QuestionScreen(switchScreen);
+      activeScreen = QuestionScreen(chooseAnswers);
     });
   }
 

@@ -50,6 +50,9 @@ dev_dependencies:
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
+dependency_overrides:
+  path_provider_foundation: 2.5.1
+
 # The following section is specific to Flutter packages.
 flutter:
 
